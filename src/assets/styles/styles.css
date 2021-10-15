@@ -1,0 +1,20 @@
+/*
+Color1: #010400
+Color1: #30332E
+Color1: #FFFBFC
+Color1: #62BBC1 
+Color1: #EC058E
+*/
+
+
+
+* {
+  margin : 0 ;
+  padding : 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+html , body {
+  height: 100vh;
+}

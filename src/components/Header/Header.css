@@ -1,0 +1,16 @@
+#main-header {
+  padding: 0.5rem 1rem;
+  background-color: #62BBC1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+nav a {
+  padding: 16px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}
