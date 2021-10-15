@@ -16,5 +16,86 @@ Color1: #EC058E
 }
 
 html , body {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+#main-header {
+  padding: 0.5rem 1rem;
+  height: 70px;
+  background-color: #62BBC1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#main-header nav {
+  display: flex;
+  align-items: center;
+}
+
+#main-header nav a {
+  padding: 16px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#main-header nav a:hover {
+  color: #010400;
+  transition: color .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#main-header nav a.shopping-carg {
+  border: 2px solid;
+  border-radius: 50px;
+  padding: 4px 16px;
+  display: flex;
+  align-items: center;
+}
+
+#main-header nav a.shopping-carg .username {
+  font-size: 11px;
+  font-weight: 400;
+  padding-right: 8px;
+  margin-top: 2px;
+}
+
+#main-header nav a.shopping-carg .material-icons {
+  font-size: 18px;
+}
+
+#main-container {
+  min-height: calc(100vh - 70px - 60px);
+  height: 100%;
+}
+
+footer {
+  height: 60px;
+  background-color: #30332E;
+  color: #ffffff;
+  padding: 16px;
+}
+
+footer #copyright {
+  text-align: center;
+}
+
+footer #copyright span {
+  color: #EC058E;
+}
+
+footer #copyright a {
+  color: #62BBC1;
+
+}
+
+footer #copyright a:hover {
+  color: #EC058E;
+
+}
+
+footer nav a:hover {
+  color: #62BBC1;
 }

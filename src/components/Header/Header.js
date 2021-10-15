@@ -1,15 +1,10 @@
-import './Header.css';
+import NavBar from "../NavBar/NavBar";
 
-const Header = () => {
+const Header = ({ username }) => {
     return (
         <header id="main-header" className="clase1 clase2" >
             <h1>E-Commerce</h1>
-            <nav>
-                <a href="./">home</a>
-                <a href="./">link</a>
-                <a href="./">link</a>
-                <a href="./">link</a>
-            </nav>
+            <NavBar username={username} />
         </header>
     )
 }
