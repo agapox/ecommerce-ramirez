@@ -71,6 +71,33 @@ html , body {
   height: 100%;
 }
 
+.product__container {
+  height: auto;
+}
+
+.product__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.product__img {
+  max-width: 500px;
+  width: 100%;
+}
+
+.qtty-btns button {
+  
+}
+
+.qtty-btns span {
+  padding: 8px;
+}
+
+.add-cart-btn button {
+  padding: 8px;
+}
+
 footer {
   height: 60px;
   background-color: #30332E;
