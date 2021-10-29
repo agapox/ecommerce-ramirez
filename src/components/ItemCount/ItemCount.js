@@ -1,38 +1,40 @@
 import { useState } from "react/cjs/react.development"
 
-const ItemCount = ({product}) => {
+const ItemCount = ({ product }) => {
     const [qtty, setQtty] = useState(0)
+    const minStock = 0;
 
     const handleStock = (operation) => {
-        console.log(operation)
         if (operation === 'add') {
-            product.stock > qtty && setQtty(qtty + 1)
+            qtty <= product.stock && setQtty(qtty + 1)
         } else {
-            qtty > 0 && setQtty(qtty - 1)
+            qtty >= minStock && setQtty(qtty - 1)
         }
+    }
+
+    const handleAddToCart = (product, qtty) => {
+        console.log(`${qtty} Products added to cart`)
+        console.log(product)
     }
 
     return (
         <>
-            <div class="qtty-btns">
+            <div className="qtty-btns">
                 <button
                     disabled={qtty === 0}
                     onClick={() => handleStock('substract')}>
-                    <span class="material-icons">
+                    <span className="material-icons">
                         remove_circle
                     </span>
                 </button>
-                <span>{ qtty }</span>
+                <button className="btn__add-cart" disabled={qtty === 0} onClick={() => handleAddToCart(product, qtty)}>add to cart (<span>{ qtty }</span>)</button>
                 <button
                     disabled={qtty === product.stock}
                     onClick={() => handleStock('add')}>
-                    <span class="material-icons">
+                    <span className="material-icons">
                         add_circle
                     </span>
                 </button>
-            </div>
-            <div class="add-cart-btn">
-                <button disabled={qtty === 0}>add to cart</button>
             </div>
         </>
     )

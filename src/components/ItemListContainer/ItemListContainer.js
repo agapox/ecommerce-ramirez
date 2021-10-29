@@ -1,29 +1,32 @@
-import ItemCount from "../ItemCount/ItemCount"
+import { useEffect } from "react"
+import { useState } from "react/cjs/react.development"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+import ItemList from "../ItemList/ItemList"
+import Loading from "../Loading/Loading"
 
-const ItemListContainer = ({products}) => {
-    console.log(products)
+const ItemListContainer = () => {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const getProductsFromAPI = () => {
+            fetch('https://fakestoreapi.com/products')
+                .then(res=>res.json())
+                .then(json=> {
+                    const items = json
+                    items.map(el => el.stock = Math.floor(Math.random()*10))
+                    setProducts([...items])
+                })
+        }
+        getProductsFromAPI()
+      }, []);
     return (
-        <div>
-            <h3>Products</h3>
-            <div className="product__list">
-                {
-                    products.map((prod, i) => (
-                        <div
-                            className="product__container"
-                            key={'product-'+i}>
-                            <p>{ prod.name } ({ prod.stock })</p>
-                            <img
-                                className="product__img"
-                                src={prod.img}
-                                alt={ prod.name } />
-
-                            <ItemCount product={prod} />
-                        </div>
-                    )
-                    
-                )}
-            </div>
-        </div>
+        <>
+            <ItemList products={products} />
+            {
+                products.length > 0 ? <ItemDetailContainer product={products[0]}/> : <Loading />
+            }
+        </>
     )
 }
 

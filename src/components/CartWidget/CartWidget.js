@@ -1,5 +1,7 @@
-const CartWidget = ({username}) => {
+const CartWidget = ({ username }) => {
+    
     const { name, lastname } = username
+
     return (
         <a className="shopping-carg" href="./">
             <span className="username">{name} {lastname}</span>

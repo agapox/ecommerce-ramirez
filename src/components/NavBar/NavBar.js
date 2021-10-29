@@ -1,6 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget"
 
-const NavBar = ({username}) => {
+const NavBar = ({ username }) => {
     return (
         <nav>
             <a href="./">home</a>
