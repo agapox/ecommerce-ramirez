@@ -1,19 +1,38 @@
+import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ productDetail }) => {
 
     return (
-        <>
-            <h1>Product Details</h1>
-            <img src={ productDetail.image } alt={ productDetail.title } />
+        <div className="product__details-cont">
             <h2>{ productDetail.title }</h2>
-            <p>{ productDetail.price }</p>
-            <p>{ productDetail.stock }</p>
-            <p>{ productDetail.description }</p>
-            <p>{ productDetail.category }</p>
-            <p>{ productDetail.rating?.rate } ({ productDetail.rating?.count })</p>
-            <ItemCount product={productDetail} />
-        </>
+            <div className="product__details">
+                <img className="product__details__img" src={ productDetail.image } alt={ productDetail.title } />
+                <div>
+                    <h3 className="product__details__description-title">Description</h3>
+                    <p className="product__details__description-text">
+                        { productDetail.description }
+                    </p>
+                    <h4 className="product__details__stock">
+                        Stock: <span>{ productDetail.stock }</span>
+                    </h4>
+                    <h4 className="product__details__cat">
+                        Category:
+                        <Link to={`/category/${encodeURIComponent(productDetail.category)}`} >
+                            { productDetail.category }
+                        </Link>
+                    </h4>
+                    <h4 className="product__details__rating">
+                        Rating: { productDetail.rating?.rate }
+                        &nbsp;({ productDetail.rating?.count } reviews)
+                    </h4>
+                    <h4 className="product__details__price">
+                        <span>USD $</span>{ productDetail.price }
+                    </h4>
+                    <ItemCount product={productDetail} />
+                </div>
+            </div>
+        </div>
     )
 
 }

@@ -1,3 +1,37 @@
+# React Ecommerce Challenge
+
+##### Challenge deployed on Github
+
+Comming soon
+
+## Challenge description
+
+
+##### Create an ecommerce in ReactJS, which includes the views of the list of products, category products, product details and also has a footer and header with a shopping cart
+&nbsp;
+
+## :+1: Requirements :metal:
+* A good README.md :ok_hand:
+    * Breif introduction of the app.
+    * Explain how to install the dependencies and run the project.
+    * Provide a production `URL` if it's the case.
+* Header
+* Footer with shopping cart
+* Products list.
+* Category products.
+* Product details.
+* Implement the use of the `API` endpoint to get the products.
+* Show the data provided on the `API` response of the product:
+    * Name
+    * Description
+    * Stock
+    * Category
+    * Rating
+    * Price
+
+&nbsp;
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +102,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+&nbsp;
+
+Rock and Roll
+:rocket: :metal: :rocket: :metal:  
+
+&nbsp;&nbsp;&nbsp;

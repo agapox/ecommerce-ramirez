@@ -27,7 +27,17 @@ const ItemCount = ({ product }) => {
                         remove_circle
                     </span>
                 </button>
-                <button className="btn__add-cart" disabled={qtty === 0} onClick={() => handleAddToCart(product, qtty)}>add to cart (<span>{ qtty }</span>)</button>
+                <button
+                    className="btn__add-cart"
+                    disabled={qtty === 0}
+                    onClick={() => handleAddToCart(product, qtty)}>
+                    add to cart
+                    {
+                        qtty > 0 && (<span>
+                            &nbsp;({ qtty })
+                        </span>)
+                    }
+                </button>
                 <button
                     disabled={qtty === product.stock}
                     onClick={() => handleStock('add')}>

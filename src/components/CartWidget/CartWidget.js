@@ -8,6 +8,7 @@ const CartWidget = ({ username }) => {
             <span className="material-icons">
                 shopping_cart
             </span>
+            {/* <span>8</span> */}
         </a>
     )
 }

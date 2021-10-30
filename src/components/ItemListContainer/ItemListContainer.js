@@ -1,31 +1,50 @@
 import { useEffect } from "react"
+import { useParams } from "react-router"
 import { useState } from "react/cjs/react.development"
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import ItemList from "../ItemList/ItemList"
-import Loading from "../Loading/Loading"
 
 const ItemListContainer = () => {
+
+    const { catName } = useParams()
+    console.log(catName)
 
     const [products, setProducts] = useState([])
 
     useEffect(() => {
+        const URL = 'https://fakestoreapi.com'
         const getProductsFromAPI = () => {
-            fetch('https://fakestoreapi.com/products')
+            setProducts([])
+            console.log('getProductsFromAPI')
+            fetch(`${URL}/products`)
                 .then(res=>res.json())
                 .then(json=> {
                     const items = json
                     items.map(el => el.stock = Math.floor(Math.random()*10))
+                    console.log(items)
                     setProducts([...items])
                 })
         }
-        getProductsFromAPI()
-      }, []);
+        const getProductsCategoryFromAPI = () => {
+            setProducts([])
+            console.log('getProductsCategoryFromAPI')
+            fetch(`${URL}/products/category/${catName}`)
+                .then(res=>res.json())
+                .then(json=> {
+                    const items = json
+                    items.map(el => el.stock = Math.floor(Math.random()*10))
+                    console.log(items)
+                    setProducts([...items])
+                })
+        }
+        if (catName !== undefined) {
+            getProductsCategoryFromAPI()
+        } else {
+            getProductsFromAPI()
+        }
+      }, [catName]);
     return (
         <>
-            <ItemList products={products} />
-            {
-                products.length > 0 ? <ItemDetailContainer product={products[0]}/> : <Loading />
-            }
+            <ItemList products={products} catName={catName} />
         </>
     )
 }
