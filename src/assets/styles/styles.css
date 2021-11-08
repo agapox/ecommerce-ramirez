@@ -53,24 +53,57 @@ button[disabled] {
   transition: color .5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#main-header nav a.shopping-carg {
-  border: 2px solid;
+#main-header nav .shopping-cart {
+  border: 2px solid #ffffff;
+  color: #ffffff;
   border-radius: 50px;
   padding: 4px 16px;
   display: flex;
   align-items: center;
   margin-left: 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color .227s ease-in-out, border-color .227s ease-in-out;
 }
 
-#main-header nav a.shopping-carg .username {
-  font-size: 11px;
-  font-weight: 400;
+#main-header nav .shopping-cart:hover {
+  background-color: #ca0377;
+  border-color: #ca0377;
+}
+
+#main-header nav .shopping-cart .username {
+  font-size: 12px;
+  font-weight: 500;
   padding-right: 8px;
   margin-top: 2px;
 }
 
-#main-header nav a.shopping-carg .material-icons {
+#main-header nav .shopping-cart .material-icons {
   font-size: 18px;
+}
+
+#main-header nav .cart-widget {
+  position: relative;
+}
+
+#main-header nav .cart-widget .shopping-cart__details {
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  width: 300px;
+  right: 0;
+  padding: 16px;
+  border-radius: 3px;
+  box-shadow: 0 0 30px -6px rgb(0 0 0 / 30%);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .227s ease-in-out;
+}
+
+#main-header nav .cart-widget .shopping-cart__details.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .227s ease-in-out;
 }
 
 #main-container {

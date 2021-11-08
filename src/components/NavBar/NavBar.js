@@ -1,6 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
-import { useEffect } from "react/cjs/react.development"
 import CartWidget from "../CartWidget/CartWidget"
 
 const NavBar = ({ username }) => {

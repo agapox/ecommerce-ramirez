@@ -1,8 +1,15 @@
-import { useState } from "react/cjs/react.development"
+import { useContext, useEffect, useState } from "react"
+import { CartContext } from "../../context/cartContext";
 
 const ItemCount = ({ product }) => {
     const [qtty, setQtty] = useState(0)
     const minStock = 0;
+
+    const cartMethods = useContext(CartContext)
+
+    useEffect(() => {
+
+    }, [qtty])
 
     const handleStock = (operation) => {
         if (operation === 'add') {
@@ -13,8 +20,8 @@ const ItemCount = ({ product }) => {
     }
 
     const handleAddToCart = (product, qtty) => {
-        console.log(`${qtty} Products added to cart`)
-        console.log(product)
+        cartMethods.addToCart(product, Number(qtty))
+        setQtty(0)
     }
 
     return (

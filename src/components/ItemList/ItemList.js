@@ -1,7 +1,7 @@
 import Item from "../Item/Item"
 import Loading from "../Loading/Loading"
 
-const ItemList = ({products, catName}) => {
+const ItemList = ({ products, catName }) => {
 
     return (
         <section>
@@ -12,7 +12,12 @@ const ItemList = ({products, catName}) => {
             </h2>
             { products.length === 0 && <Loading /> }
             <div className="product__list">
-                { products.length > 0 && products.map((product, i) => <Item product={product} key={i} />) }
+                {
+                    products.length > 0 && 
+                    products.map((product, i) => (
+                        <Item product={product} key={i} />
+                    ))
+                }
             </div>
         </section>
     )
