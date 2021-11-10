@@ -1,5 +1,5 @@
 import Item from "../Item/Item"
-import Loading from "../Loading/Loading"
+import Loading from "../../Loading/Loading"
 
 const ItemList = ({ products, catName }) => {
 

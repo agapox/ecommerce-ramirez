@@ -106,7 +106,7 @@ button[disabled] {
   transition: opacity .227s ease-in-out;
 }
 
-#main-container {
+main {
   min-height: calc(100vh - 70px - 60px);
   height: 100%;
   padding: 2rem 1rem;
@@ -144,6 +144,7 @@ button[disabled] {
   max-width: 500px;
   max-height: 600px;
   margin: auto;
+  width: 100%;
 }
 
 @media screen and (max-width: 991px) {
