@@ -128,7 +128,7 @@ button[disabled] {
   justify-items: center;
   align-items: center;
   justify-content: center;
-  grid-template-columns: 50px auto 40px 70px 80px;
+  grid-template-columns: 50px calc(100% - 50px - 80px - 70px - 80px - 20px - 32px) 80px 70px 80px 20px;
   gap: 8px;
   margin-bottom: 20px;
 }
@@ -161,6 +161,17 @@ button[disabled] {
 #main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__total {
   color: #ca0377;
   font-size: 16px;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item button {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item button span {
+  font-size: 24px;
 }
 
 main {
@@ -260,6 +271,11 @@ main {
   text-align: center;
   margin-top: 12px;
   font-size: 14px;
+}
+
+.checkout span, .go-to-checkout span {
+  vertical-align: middle;
+  margin-left: 4px;
 }
 
 .loading {
@@ -442,8 +458,6 @@ main {
   border-radius: 0 200px 200px 0;
 }
 
-
-
 @media screen and (max-width: 991px) {
   .qtty-btns button {
     height: 55px;
@@ -459,6 +473,45 @@ main {
   padding: 0 1rem;
   min-width: 150px;
   background: #d7d7d7;
+}
+
+.cart .cart-details__item {
+  display: grid;
+  grid-template-columns: 120px auto 150px 150px 150px 80px;
+  gap: 32px;
+}
+
+.cart .cart-details__item img {
+  width: 100%;
+}
+
+.cart .cart-details__item .cart-details__item__title,
+.cart .cart-details__item .cart-details__item__qtty,
+.cart .cart-details__item .cart-details__item__price,
+.cart .cart-details__item .cart-details__item__total,
+.cart .cart-details__item .cart-details__item__delete {
+  margin-top: 32px;
+}
+
+.cart .cart-details__item .cart-details__item__price,
+.cart .cart-details__item .cart-details__item__total {
+  text-align: right;
+}
+.cart .cart-details__item .cart-details__item__total {
+  color: #ca0377;
+}
+
+.cart .cart-details__item .cart-details__item__delete button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color .227s ease-in-out, font-size .227s ease-in-out;
+}
+
+.cart .cart-details__item .cart-details__item__delete button span {
+  font-size: 28px;
 }
 
 footer {

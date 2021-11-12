@@ -22,8 +22,9 @@ const CartProvider = ({children}) => {
     }
 
     const removeFromCart = (productId) => {
-        console.log("CartContext => removeFromCart")
-        console.log(productId)
+        console.log(cart.filter(((el) => el.id !== productId)))
+        
+        setCart(cart.filter(((el) => el.id !== productId)))
     }
 
     const clearCart = () => {
@@ -38,11 +39,28 @@ const CartProvider = ({children}) => {
         return cart
     }
 
+    const getProductsQttyInCart = () => {
+        let count = 0;
+        cart.forEach(prod => {
+            count += prod.qtty
+        });
+        return count
+    }
+    const getProductsTotalInCart = () => {
+        let amount = 0;
+        cart.forEach(prod => {
+            amount += prod.price * prod.qtty
+        });
+        return Number(amount.toFixed(2))
+    }
+
     const cartMethods = {
         getCart,
         addToCart,
         removeFromCart,
-        clearCart
+        clearCart,
+        getProductsQttyInCart,
+        getProductsTotalInCart
     }
 
     // const valorDelContexto = {

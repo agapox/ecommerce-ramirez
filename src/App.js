@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ItemListContainer from "./components/Item/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/Item/ItemDetailContainer/ItemDetailContainer";
-import Cart from "./components/Cart/Cart/Cart";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
     

@@ -52,7 +52,12 @@ const ItemCount = ({ product }) => {
             </div>
             {   cartMethods.getCart().length > 0 &&
                 <div className="checkout">
-                    <Link to={'/cart'} children={'Go to checkout'} />
+                    <Link to={'/cart'}>
+                        Checkout
+                        <span className="material-icons">
+                            shopping_cart_checkout
+                        </span>
+                    </Link>
                 </div>
             }
         </>
