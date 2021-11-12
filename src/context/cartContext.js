@@ -54,19 +54,25 @@ const CartProvider = ({children}) => {
         return Number(amount.toFixed(2))
     }
 
+    const updateCart = (productId, operation) => {
+        const newCart = [...cart];
+        if (operation === 'add') {
+            newCart.map(el => el.id === productId && el.qtty++ && el)
+        } else {
+            newCart.map(el => el.id === productId && el.qtty-- && el)
+        }
+        setCart(newCart)
+    }
+
     const cartMethods = {
         getCart,
         addToCart,
         removeFromCart,
         clearCart,
         getProductsQttyInCart,
-        getProductsTotalInCart
+        getProductsTotalInCart,
+        updateCart
     }
-
-    // const valorDelContexto = {
-    //     cart : cart,
-    //     addToCart : addToCart
-    // }
 
 
     return (

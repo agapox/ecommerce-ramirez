@@ -35,8 +35,12 @@ const CartDetailsContainer = () => {
             {
                 productsInCart > 0 && (
                     <>
-                        <p>{ productsInCart } items in cart</p>
-                        <p>Total: ${ totalInCart }</p>
+                        <p className="cart-details__total">
+                            Items: <span>{ productsInCart }</span>
+                        </p>
+                        <p className="cart-details__total">
+                            Total: <span>${ totalInCart }</span>
+                        </p>
                     </>
                 )
             }

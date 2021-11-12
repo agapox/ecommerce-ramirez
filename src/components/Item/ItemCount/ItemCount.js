@@ -8,6 +8,8 @@ const ItemCount = ({ product }) => {
 
     const cartMethods = useContext(CartContext)
 
+    console.log(cartMethods.getProductsQttyInCart())
+
     const handleStock = (operation) => {
         if (operation === 'add') {
             qtty <= product.stock && setQtty(qtty + 1)
@@ -50,16 +52,15 @@ const ItemCount = ({ product }) => {
                     </span>
                 </button>
             </div>
-            {   cartMethods.getCart().length > 0 &&
-                <div className="checkout">
-                    <Link to={'/cart'}>
-                        Checkout
-                        <span className="material-icons">
-                            shopping_cart_checkout
-                        </span>
-                    </Link>
-                </div>
-            }
+            <div className="checkout"
+                style={{visibility: cartMethods.getProductsQttyInCart() > 0 ? 'visible' : 'hidden'}}>
+                <Link to={'/cart'}>
+                    Checkout
+                    <span className="material-icons">
+                        shopping_cart_checkout
+                    </span>
+                </Link>
+            </div>
         </>
     )
 }

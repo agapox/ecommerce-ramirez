@@ -36,6 +36,13 @@ const Cart = () => {
                     </div>
                 )
             }
+            {
+                items !== 0 && (
+                    <div className="cart__place-order">
+                        <button>Place order</button>
+                    </div>
+                )
+            }
         </div>
     )
 }

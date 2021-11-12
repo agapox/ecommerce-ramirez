@@ -34,19 +34,26 @@ const CartWidget = ({ username }) => {
                     productsInCart > 0 && <span>{ productsInCart }</span>
                 }
             </button>
-            {
-                productsInCart > 0 && (
-                    <div className={'shopping-cart__details' + (showCartDetails ? '' : ' hidden')}>
-                        <CartDetailsContainer />
-                        <Link to={'/cart'} className="go-to-checkout">
-                            Checkout
-                            <span className="material-icons">
-                                shopping_cart_checkout
-                            </span>
-                        </Link>
-                    </div>
-                )
-            }
+            <div className={'shopping-cart__details' + (showCartDetails ? '' : ' hidden')}>
+                {
+                    productsInCart > 0 ? (
+                        <>
+                            <CartDetailsContainer />
+                            <Link to={'/cart'} className="go-to-checkout">
+                                Checkout
+                                <span className="material-icons">
+                                    shopping_cart_checkout
+                                </span>
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <h3>You don't have products in your cart</h3>
+                            <p>Add some products to </p>
+                        </>
+                    )
+                }
+            </div>
         </div>
     )
 }

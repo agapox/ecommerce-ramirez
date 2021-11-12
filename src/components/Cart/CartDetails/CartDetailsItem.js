@@ -9,13 +9,19 @@ const CartDetailsItem = ({ product }) => {
         cartContext.removeFromCart(id)
     }
 
+    const updateCart = (productid, operation) => {
+        cartContext.updateCart(productid, operation)
+    }
+
     return (
         <>
             <div className="cart-details__item">
                 <img src={ product.image } alt={ product.title } />
                 <p className="cart-details__item__title">{ product.title }</p>
                 <div className="cart-details__item__qtty">
-                    <button className="minus">
+                    <button className="minus"
+                        disabled={product.qtty === 1}
+                        onClick={() => updateCart(product.id, 'remove')}>
                         <span className="material-icons">
                             remove_circle
                         </span>
@@ -23,7 +29,8 @@ const CartDetailsItem = ({ product }) => {
                     <span className="number">
                         { product.qtty }
                     </span>
-                    <button className="plus">
+                    <button className="plus"
+                        onClick={() => updateCart(product.id, 'add')}>
                         <span className="material-icons">
                             add_circle
                         </span>
