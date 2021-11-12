@@ -87,23 +87,80 @@ button[disabled] {
 }
 
 #main-header nav .cart-widget .shopping-cart__details {
+  text-align: right;
   position: absolute;
   top: 40px;
   background-color: white;
-  width: 300px;
+  width: 500px;
   right: 0;
-  padding: 16px;
+  padding: 32px;
   border-radius: 3px;
   box-shadow: 0 0 30px -6px rgb(0 0 0 / 30%);
   visibility: visible;
   opacity: 1;
   transition: opacity .227s ease-in-out;
+  z-index: 999;
 }
 
 #main-header nav .cart-widget .shopping-cart__details.hidden {
   visibility: hidden;
   opacity: 0;
   transition: opacity .227s ease-in-out;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .go-to-checkout {
+  text-decoration: none;
+  color: #ca0377;
+  transition: .876s color cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 0;
+  margin-top: 16px;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .go-to-checkout:hover {
+  color: #37898f;
+  transition: .876s color cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item {
+  width: 100%;
+  margin-bottom: 16px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 50px auto 40px 70px 80px;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item img {
+  max-width: 45px;
+  max-height: 45px;
+  display: inline-block;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__title {
+  font-size: 12px;
+  max-height: 28px;
+  overflow: hidden;
+  text-align: left;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__qtty {
+  font-size: 18px;
+}
+
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__price,
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__total {
+  text-align: right;
+  width: 100%;
+  font-size: 14px;
+}
+
+#main-header nav .cart-widget .shopping-cart__details .cart-details__item .cart-details__item__total {
+  color: #ca0377;
+  font-size: 16px;
 }
 
 main {
@@ -197,6 +254,12 @@ main {
 .product__details .qtty-btns {
   margin-top: 2rem;
   justify-content: flex-start;
+}
+
+.checkout {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
 }
 
 .loading {

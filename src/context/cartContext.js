@@ -1,4 +1,4 @@
-import { createContext , useEffect, useState } from "react"
+import { createContext, useState } from "react"
 
 export const CartContext = createContext([])
 const { Provider } = CartContext
@@ -7,21 +7,18 @@ const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
 
-    useEffect(() => {
-        console.log(cart)
-    }, [cart])
-
     const addToCart = (product, qtty) => {
         if (!isProductInCart(product.id)) {
-            console.log("CartContext => addToCart")
-            product.qtty = qtty
-            delete product.stock
-            setCart([...cart, product])
+            const cartProduct = {...product}
+            cartProduct.qtty = qtty
+            delete cartProduct.stock
+            setCart([...cart, cartProduct])
         } else {
-            let newCart = cart
+            let newCart = [...cart]
             newCart.find((el) => el.id === product.id).qtty += Number(qtty)
             setCart([...newCart])
         }
+        product.stock -= qtty;
     }
 
     const removeFromCart = (productId) => {
@@ -30,9 +27,7 @@ const CartProvider = ({children}) => {
     }
 
     const clearCart = () => {
-        console.log("CartContext => clearCart")
         setCart([])
-        console.log(cart)
     }
 
     const isProductInCart = (productId) => {

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { useEffect } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../../context/cartContext";
 
 const ItemCount = ({ product }) => {
@@ -7,10 +7,6 @@ const ItemCount = ({ product }) => {
     const minStock = 0;
 
     const cartMethods = useContext(CartContext)
-    useEffect(() => {
-        console.log('hola')
-    },[qtty])
-
 
     const handleStock = (operation) => {
         if (operation === 'add') {
@@ -54,6 +50,11 @@ const ItemCount = ({ product }) => {
                     </span>
                 </button>
             </div>
+            {   cartMethods.getCart().length > 0 &&
+                <div className="checkout">
+                    <Link to={'/cart'} children={'Go to checkout'} />
+                </div>
+            }
         </>
     )
 }

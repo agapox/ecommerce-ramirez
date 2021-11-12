@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ItemListContainer from "./components/Item/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/Item/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./components/Cart/Cart/Cart";
 
 const App = () => {
     
@@ -19,15 +20,10 @@ const App = () => {
                 <Header username={username} />
                 <main>
                     <Switch>
-                        <Route path="/" exact>
-                            <ItemListContainer />
-                        </Route>
-                        <Route path="/category/:catName">
-                            <ItemListContainer />
-                        </Route>
-                        <Route path="/product/:id" component={ItemDetailContainer}>
-                            <ItemDetailContainer />
-                        </Route>
+                        <Route path="/" exact component={ItemListContainer} />
+                        <Route path="/category/:catName" component={ItemListContainer} />
+                        <Route path="/product/:id" component={ItemDetailContainer} />
+                        <Route path="/cart" component={Cart} />
                     </Switch>
                 </main>
                 <Footer />
