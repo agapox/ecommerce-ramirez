@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { CartContext } from "../../../context/cartContext"
 
 const CartDetailsItem = ({ product }) => {
@@ -16,8 +17,13 @@ const CartDetailsItem = ({ product }) => {
     return (
         <>
             <div className="cart-details__item">
-                <img src={ product.image } alt={ product.title } />
-                <p className="cart-details__item__title">{ product.title }</p>
+                <Link to={`/product/${product.id}`}>
+                    <img src={ product.image } alt={ product.title } />
+                </Link>
+                <Link className="cart-details__item__title"
+                    to={`/product/${product.id}`}>
+                    <p>{ product.title }</p>
+                </Link>
                 <div className="cart-details__item__qtty">
                     <button className="minus"
                         disabled={product.qtty === 1}

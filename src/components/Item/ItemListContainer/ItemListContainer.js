@@ -1,41 +1,41 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
 import ItemList from "../ItemList/ItemList"
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore/lite';
+
+import { app } from "../../../firebase/firebase"
 
 const ItemListContainer = () => {
 
     const { catName } = useParams()
-
+    
     const [products, setProducts] = useState([])
-
+    
     useEffect(() => {
-        const URL = 'https://fakestoreapi.com'
-        const getProductsFromAPI = () => {
+        const db = getFirestore(app);
+        const productsCol = collection(db, 'products')
+        const getProductsFromFB = async () => {
             setProducts([])
-            fetch(`${URL}/products`)
-                .then(res=>res.json())
-                .then(json=> {
-                    const items = json
-                    items.map(el => el.stock = Math.floor(Math.random()*10))
-                    setProducts([...items])
-                })
+            const productsSnapshot = await getDocs(productsCol)
+            const products = productsSnapshot.docs.map(doc => doc.data())
+            setProducts([...products])
         }
-        const getProductsCategoryFromAPI = () => {
+
+        const getProductsCategoryFromFB = async () => {
             setProducts([])
-            fetch(`${URL}/products/category/${catName}`)
-                .then(res=>res.json())
-                .then(json=> {
-                    const items = json
-                    items.map(el => el.stock = Math.floor(Math.random()*10))
-                    setProducts([...items])
-                })
+            // Create a query against the collection.
+            const productsCategoryQuery = query(productsCol, where("category", "==", catName))
+            const querySnapshot = await getDocs(productsCategoryQuery)
+            const products = querySnapshot.docs.map(doc => doc.data())
+            setProducts([...products])
         }
         if (catName !== undefined) {
-            getProductsCategoryFromAPI()
+            getProductsCategoryFromFB()
         } else {
-            getProductsFromAPI()
+            getProductsFromFB()
         }
-      }, [catName]);
+    }, [catName])
+
     return (
         <>
             <ItemList products={products} catName={catName} />

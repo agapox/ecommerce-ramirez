@@ -8,8 +8,6 @@ const ItemCount = ({ product }) => {
 
     const cartMethods = useContext(CartContext)
 
-    console.log(cartMethods.getProductsQttyInCart())
-
     const handleStock = (operation) => {
         if (operation === 'add') {
             qtty <= product.stock && setQtty(qtty + 1)

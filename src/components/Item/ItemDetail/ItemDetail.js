@@ -23,11 +23,11 @@ const ItemDetail = ({ productDetail }) => {
                         </Link>
                     </h4>
                     <h4 className="product__details__rating">
-                        Rating: { productDetail.rating?.rate }
+                        Rating: <span>{ productDetail.rating?.rate }</span>
                         &nbsp;({ productDetail.rating?.count } reviews)
                     </h4>
                     <h4 className="product__details__price">
-                        <span>USD $</span>{ productDetail.price }
+                        USD <span>${ productDetail.price }</span>
                     </h4>
                     <ItemCount product={productDetail} />
                 </div>
