@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
+import transformAmount from "../../../utilities/transformAmount"
 import ItemCount from "../ItemCount/ItemCount"
 
 const Item = ({ product }) => {
     return (
         <div className="product__item">
-            <h2 className="product__item__price">${product.price.toFixed(2)}</h2>
+            <h2 className="product__item__price">{transformAmount(product.price)}</h2>
             <Link to={ `/product/${product.id}` }>
                 <div className="product__item__img">
                     <img src={ product.image } alt={ product.title } />

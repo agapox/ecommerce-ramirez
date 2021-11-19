@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../../../context/cartContext"
+import transformAmount from "../../../utilities/transformAmount"
 import CartDetailsItem from "./CartDetailsItem"
 
 const CartDetailsContainer = () => {
@@ -36,10 +37,10 @@ const CartDetailsContainer = () => {
                 productsInCart > 0 && (
                     <>
                         <p className="cart-details__total">
-                            Items: <span>{ productsInCart }</span>
+                            Total items: <span>{ productsInCart }</span>
                         </p>
                         <p className="cart-details__total">
-                            Total: <span>${ totalInCart }</span>
+                            Cart total: <span>{ transformAmount(Number(totalInCart)) }</span>
                         </p>
                     </>
                 )

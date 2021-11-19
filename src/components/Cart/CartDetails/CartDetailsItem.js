@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../../context/cartContext"
+import transformAmount from "../../../utilities/transformAmount"
 
 const CartDetailsItem = ({ product }) => {
 
@@ -42,8 +43,8 @@ const CartDetailsItem = ({ product }) => {
                         </span>
                     </button>
                 </div>
-                <p className="cart-details__item__price">${ product.price }</p>
-                <p className="cart-details__item__total">${ (product.price * product.qtty).toFixed(2) }</p>
+                <p className="cart-details__item__price">{ transformAmount(product.price) }</p>
+                <p className="cart-details__item__total">{ transformAmount(product.price * product.qtty) }</p>
                 <div className="cart-details__item__delete">
                     <button onClick={() => deleteProductFromCart(product.id)}>
                         <span className="material-icons">
