@@ -22,8 +22,6 @@ const CartProvider = ({children}) => {
     }
 
     const removeFromCart = (productId) => {
-        console.log(cart.filter(((el) => el.id !== productId)))
-        
         setCart(cart.filter(((el) => el.id !== productId)))
     }
 
@@ -40,18 +38,14 @@ const CartProvider = ({children}) => {
     }
 
     const getProductsQttyInCart = () => {
-        let count = 0;
-        cart.forEach(prod => {
-            count += prod.qtty
-        });
-        return count
+        return cart.reduce((qtty, product) => {
+            return qtty + product.qtty
+        }, 0)
     }
     const getProductsTotalInCart = () => {
-        let amount = 0;
-        cart.forEach(prod => {
-            amount += prod.price * prod.qtty
-        });
-        return Number(amount.toFixed(2))
+        return cart.reduce((total, product) => {
+            return total + (product.price * product.qtty)
+        }, 0).toFixed(2)
     }
 
     const updateCart = (productId, operation) => {

@@ -25,7 +25,7 @@ const CartWidget = ({ username }) => {
 
     return (
         <div className="cart-widget">
-            <button className="shopping-cart" onClick={toggleCartDetails}>
+            <button className="shopping-cart" onMouseEnter={toggleCartDetails}>
                 <span className="username">{name} {lastname}</span>
                 <span className="material-icons">
                     shopping_cart
@@ -34,7 +34,7 @@ const CartWidget = ({ username }) => {
                     productsInCart > 0 && <span>{ productsInCart }</span>
                 }
             </button>
-            <div className={'shopping-cart__details' + (showCartDetails ? '' : ' hidden')}>
+            <div className={'shopping-cart__details' + (showCartDetails ? '' : ' hidden')} onMouseLeave={toggleCartDetails}>
                 {
                     productsInCart > 0 ? (
                         <>

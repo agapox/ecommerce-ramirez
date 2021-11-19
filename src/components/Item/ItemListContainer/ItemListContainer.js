@@ -14,26 +14,20 @@ const ItemListContainer = () => {
     useEffect(() => {
         const db = getFirestore(app);
         const productsCol = collection(db, 'products')
-        const getProductsFromFB = async () => {
+        const getProducts = async (category) => {
             setProducts([])
-            const productsSnapshot = await getDocs(productsCol)
-            const products = productsSnapshot.docs.map(doc => doc.data())
+            let productsSnapshot;
+            if (category !== undefined) {
+                const productsCategoryQuery = query(productsCol, where("category", "==", category))
+                productsSnapshot = await getDocs(productsCategoryQuery)
+            } else {
+                productsSnapshot = await getDocs(productsCol)
+            }
+            const products = productsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
             setProducts([...products])
         }
 
-        const getProductsCategoryFromFB = async () => {
-            setProducts([])
-            // Create a query against the collection.
-            const productsCategoryQuery = query(productsCol, where("category", "==", catName))
-            const querySnapshot = await getDocs(productsCategoryQuery)
-            const products = querySnapshot.docs.map(doc => doc.data())
-            setProducts([...products])
-        }
-        if (catName !== undefined) {
-            getProductsCategoryFromFB()
-        } else {
-            getProductsFromFB()
-        }
+        getProducts(catName)
     }, [catName])
 
     return (
