@@ -17,14 +17,16 @@ const App = () => {
         <BrowserRouter>
             <CartProvider>
                 <Header username={username} />
-                <main>
-                    <Switch>
-                        <Route path="/" exact component={ItemListContainer} />
-                        <Route path="/category/:catName" component={ItemListContainer} />
-                        <Route path="/product/:id" component={ItemDetailContainer} />
-                        <Route path="/cart" component={Cart} />
-                    </Switch>
-                </main>
+                <div className="container">
+                    <main>
+                        <Switch>
+                            <Route path="/" exact component={ItemListContainer} />
+                            <Route path="/category/:catName" component={ItemListContainer} />
+                            <Route path="/product/:id" component={ItemDetailContainer} />
+                            <Route path="/cart" component={Cart} />
+                        </Switch>
+                    </main>
+                </div>
                 <Footer />
             </CartProvider>
         </BrowserRouter>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/cartContext"
 import CartDetailsContainer from "./CartDetails/CartDetailsContainer"
+import Checkout from "./Checkout"
 
 const Cart = () => {
 
@@ -37,11 +38,7 @@ const Cart = () => {
                 )
             }
             {
-                items !== 0 && (
-                    <div className="cart__place-order">
-                        <button>Place order</button>
-                    </div>
-                )
+                items !== 0 && <Checkout />
             }
         </div>
     )

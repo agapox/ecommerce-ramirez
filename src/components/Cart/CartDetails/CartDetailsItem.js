@@ -18,7 +18,8 @@ const CartDetailsItem = ({ product }) => {
     return (
         <>
             <div className="cart-details__item">
-                <Link to={`/product/${product.id}`}>
+                <Link className="cart-details__item__image"
+                    to={`/product/${product.id}`}>
                     <img src={ product.image } alt={ product.title } />
                 </Link>
                 <Link className="cart-details__item__title"

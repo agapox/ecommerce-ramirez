@@ -3,8 +3,10 @@ const Footer = () => {
   currentYear = currentYear.getFullYear()
   return (
     <footer>
-      <div id="copyright">
-      { currentYear } Designed with <span className="heart">&hearts;</span> by <a href="./">agapox</a>
+      <div className="container">
+        <div id="copyright">
+          { currentYear } Designed with <span className="heart">&hearts;</span> by <a href="./">agapox</a>
+        </div>
       </div>
     </footer>
   )
