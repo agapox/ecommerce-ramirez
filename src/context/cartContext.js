@@ -7,6 +7,8 @@ const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
 
+    const [orders, setOrders] = useState([])
+
     const addToCart = (product, qtty) => {
         if (!isProductInCart(product.id)) {
             const cartProduct = {...product}
@@ -58,6 +60,14 @@ const CartProvider = ({children}) => {
         setCart(newCart)
     }
 
+    const placeOrder = (order) => {
+        setOrders([...orders, order])
+    }
+
+    const getOrders = () => {
+        return orders
+    }
+
     const cartMethods = {
         getCart,
         addToCart,
@@ -65,7 +75,9 @@ const CartProvider = ({children}) => {
         clearCart,
         getProductsQttyInCart,
         getProductsTotalInCart,
-        updateCart
+        updateCart,
+        placeOrder,
+        getOrders,
     }
 
 

@@ -725,9 +725,15 @@ main {
   margin-right: 32px;
 }
 
+.checkout-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 64px 0;
+}
+
 .checkout-form form {
   max-width: 500px;
-  margin: 64px 0;
 }
 
 .checkout-form form > p {
@@ -743,8 +749,14 @@ main {
 }
 
 .checkout-form form .form-control label {
-  width: 70px;
-  display: inline-block;
+  width: 100%;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.checkout-form form .form-control__validation small {
+  margin-left: 8px;
+  color: #ca0377;
 }
 
 .checkout-form form .form-control.actions {
@@ -770,20 +782,146 @@ main {
 }
 
 .checkout-form form .form-control input {
-  width: calc(100% - 70px);
-  display: inline-block;
+  border: 2px solid #62BBC1;
+  border-radius: 4px;
+  width: 100%;
   padding: 8px 12px;
   font-size: 14px;
 }
 
-.checkout-form form .form-control select {
-  width: calc(100% - 70px);
-  display: inline-block;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid #767676;
-  border-radius: 2px;
+.checkout-form form .form-control input.invalid {
+  border: 2px solid #ca0377;
 }
+
+
+.checkout-form form .form-control input.valid {
+  border-color: #19e65a;
+}
+
+.checkout-form form .form-control input:focus {
+  outline: -webkit-focus-ring-color auto 0;
+}
+
+.checkout-form form .form-control input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0;
+}
+
+
+.checkout-form form .form-control select {
+  border: 2px solid #62BBC1;
+  border-radius: 4px;
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 14px;
+}
+
+.checkout-form form .form-control select:focus-visible {
+  outline: -webkit-focus-ring-color auto 0;
+}
+
+.checkout-form form .form-control select.invalid {
+  border-color: #ca0377;
+}
+
+.order-place .description {
+  margin-bottom: 16px;
+}
+
+.order-place .title {
+
+}
+
+.order-place .icon span {
+  font-size: 150px;
+}
+
+
+.order-place .icon {
+  margin: 32px auto;
+  text-align: center;
+}
+
+.order-place.placed .icon span {
+  color: #00c747;
+}
+
+.order-place.rejected .icon span {
+  color: #FBA505;
+}
+
+.order-placing {
+  margin-top: 32px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.order-placing > .material-icons {
+  font-size: 150px;
+  color: #ca0377;
+  -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both infinite;
+          animation: slide-in-blurred-left 2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both infinite;
+}
+ @-webkit-keyframes slide-in-blurred-left {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+            transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+  30% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+            transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px) scaleY(1) scaleX(1);
+            transform: translateX(1000px) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+}
+@keyframes slide-in-blurred-left {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+            transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+            transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+            transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+}
+
+
+
 
 footer {
   height: 60px;
