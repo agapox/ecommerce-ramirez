@@ -2,7 +2,7 @@
 
 ##### Challenge deployed on Github
 
-Comming soon
+![Demo App](https://github.com/agapox/ecommerce-ramirez/tree/main/src/assets/images/React-demo-720.gif "Demo app")
 
 ## Challenge description
 
@@ -29,7 +29,10 @@ Comming soon
     * Rating
     * Price
 
-&nbsp;
+## Libraries
+* react
+* react-dom for routing in the app
+* react-hook-form for forms management
 
 
 # Getting Started with Create React App
@@ -110,3 +113,4 @@ Rock and Roll
 :rocket: :metal: :rocket: :metal:  
 
 &nbsp;&nbsp;&nbsp;
+    
