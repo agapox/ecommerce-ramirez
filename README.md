@@ -2,7 +2,7 @@
 
 ##### Challenge deployed on Github
 
-![Demo App](https://github.com/agapox/ecommerce-ramirez/tree/main/src/assets/images/React-demo-720.gif "Demo app")
+![Demo App](https://github.com/agapox/ecommerce-ramirez/blob/main/src/assets/images/React-demo-720.gif "Demo app")
 
 ## Challenge description
 
