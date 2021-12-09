@@ -1,6 +1,11 @@
 # React Ecommerce Challenge
+___
 
-##### Challenge deployed on Github
+##### Challenge deployed on Vercel
+&nbsp;
+#### [https://ecommerce-ramirez.vercel.app/](https://ecommerce-ramirez.vercel.app/)
+
+&nbsp;
 
 ![Demo App](https://github.com/agapox/ecommerce-ramirez/blob/main/src/assets/images/React-demo-720.gif "Demo app")
 
@@ -33,7 +38,19 @@
 * react
 * react-dom for routing in the app
 * react-hook-form for forms management
+* Firebase for store data
 
+## Running the project
+
+To run the project in the base URL you can find a example.env file, this file you have to rename it to .env and fill it up with your Firebase secret keys.
+
+Here you can find some help with Firebase(https://firebase.google.com/docs/web/setup?authuser=0)
+
+Rock and Roll
+:rocket: :metal: :rocket: :metal:  
+
+# Official React Readme
+___
 
 # Getting Started with Create React App
 
@@ -106,11 +123,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-&nbsp;
-
-Rock and Roll
-:rocket: :metal: :rocket: :metal:  
-
 &nbsp;&nbsp;&nbsp;
-    
