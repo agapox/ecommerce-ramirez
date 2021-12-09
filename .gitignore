@@ -10,10 +10,7 @@
 
 # production
 /build
-
-# local env
-src/firebase/firebase.js
-src/firebase/LoadItemsFirebase.js
+.env
 
 # misc
 .DS_Store
